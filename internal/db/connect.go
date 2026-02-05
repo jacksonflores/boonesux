@@ -1,13 +1,14 @@
 package db
 
 import (
+	"context"
 	"database/sql"
 	"log"
-	"os"
+
+	_ "github.com/lib/pq"
 )
 
-func Connect() {
-	url := os.Getenv("DB_URL")
+func Must(ctx context.Context, url string) *sql.DB {
 	if url == "" {
 		log.Fatal("$DB_URL required")
 	}
@@ -17,8 +18,10 @@ func Connect() {
 		log.Fatal("error connecting to db: ", err.Error())
 	}
 
-	err = db.Ping()
+	err = db.PingContext(ctx)
 	if err != nil {
 		log.Fatal("could not ping db: ", err.Error())
 	}
+
+	return db
 }
