@@ -25,7 +25,11 @@ func main() {
 
 	app := app.New(db)
 
-	if err := app.Run(ctx, "8080"); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("$PORT required")
+	}
+	if err := app.Run(ctx, port); err != nil {
 		log.Fatal(err)
 	}
 }
