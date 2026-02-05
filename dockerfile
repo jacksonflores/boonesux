@@ -1,4 +1,4 @@
-FROM golang:latest-alpine as build
+FROM golang:1.25-alpine AS build
 
 RUN apk add --no-cache ca-certificates
 
@@ -11,7 +11,7 @@ COPY  . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o boonesux ./cmd
 
-FROM alpine:latest
+FROM alpine:3.20
 
 RUN apk add --no-cache ca-certificates
 
