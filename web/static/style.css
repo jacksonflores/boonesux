@@ -1,0 +1,42 @@
+@font-face {
+	font-family: "meslo";
+	src: url("/static/fonts/meslo/MesloLGS-NF-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "meslo";
+	src: url("/static/fonts/meslo/MesloLGS-NF-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "meslo";
+	src: url("/static/fonts/meslo/MesloLGS-NF-Italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+.primary-background {
+	background-color: #2B303A;
+}
+
+
+.text-yel {
+	color: #FCE762 !important;
+}
+
+:root {
+	--mono: "meslo", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+body {
+	font-family: var(--mono);
+	color: #FCE762;
+}
